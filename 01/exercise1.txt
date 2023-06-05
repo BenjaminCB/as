@@ -1,0 +1,25 @@
+EditDistance("GO", "LOG")
+
+  _ L O G
+
+_ 0 1 2 i
+
+G 1 2 2 i
+
+O i i i i
+
+EditDistR("GO", "LOG") = 1 + min(
+    EditDistR("G", "LO") = 1 + min(
+        EditDistR("", "L") = 1
+        EditDistR("", "LO") = 2
+        EditDistR("G", "L") = 1 + min(
+            EditDistR("", "") = 0
+            EditDistR("", "L") = 1
+            EditDistR("G", "") = 1
+        )
+    )
+    EditDistR("G", "LOG") = min(
+
+    )
+    EditDistR("GO", "LO")
+)

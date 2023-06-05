@@ -1,0 +1,14 @@
+palin(S, i, j)
+    if c[i,j] == null
+        if i > j
+            c[i,j] = 0
+        else if i == j
+            c[i,j] = 1
+        else if i < j and S[i] == S[j]
+            c[i,j] = 2 + palin(S, i + 1, j - 1)
+        else
+            c[i,j] = max(
+                palin(S, i + 1, j),
+                palin(S, i, j - 1)
+            )
+    return c[i,j]

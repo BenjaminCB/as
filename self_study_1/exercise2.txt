@@ -1,0 +1,33 @@
+subexercise 1:
+    If we invite P then non of V_i can be invited, but all of S_i can,
+    yielding a maximum friendliness rating of 5+3+5+2 = 15.
+
+    If we do not invite P, all of V_i, however in the case of V_2 the children,
+    sum up to a higher friendliness rating, thus we should invite P, V_1, V_3, S_2, S_3,
+    yielding a maximum friendliness rating of 5+6+5+2+3 = 21.
+
+subexercise 2:
+    We can think of this a binary choice. If we invite the person at the current node,
+    then we can not invite the immediate children, but we can maximize over the childrens children.
+    If we do not invite the person at the current node, we can maximize over the children.
+
+    Some implementation assumptions
+
+    Tree a = { value :: a
+             , children :: [Tree a] }
+
+    isLeaf (Tree _ []) = True
+    isLeaf (Tree _ _ ) = False
+
+    this leads to the recurrence
+
+    T(t) | isLeaf t  = value t
+         | otherwise = max
+            (value t + sum (map (T . children) (children t)))
+            (sum (map T (children t)))
+
+    we will have an array/dict for each node in the tree
+
+    party-list'(t):
+        A = new array of length |t| filled with null
+        party-list(A,t)

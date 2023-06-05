@@ -1,0 +1,8 @@
+case for p1 (proof by contradiction):
+    assume that the convex hull does not contain point p1.
+    The first connection in the hull p0 to pn, must have a higher angle than
+    p0 to p1, since p1 is the first element in the sorted list.
+    Therefore p1 must be on the outside of the convex hull, which is a contradiction,
+    since all points should be on or within the hull.
+
+case for pm: almost excactly the same argument

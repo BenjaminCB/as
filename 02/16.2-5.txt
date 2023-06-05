@@ -1,0 +1,10 @@
+enclosed' = enclosed . sort
+enclosed [] = []
+enclosed (x:xs) = (x, x+1) : enclosed (dropWhile (<=x+1) xs)
+
+let S be an optimal solution not containing the greedy choice x.
+The first point n has to be covered therefore there must be,
+an interval (u,v) which is to left of the i.e u is strictly
+smaller than n. replacing with the greedy choice (n, n+1)
+will still enclose n and all other points that (u,v) would
+enclose.
